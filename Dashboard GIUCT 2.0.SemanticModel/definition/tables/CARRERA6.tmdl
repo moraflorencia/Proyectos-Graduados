@@ -1,0 +1,32 @@
+table CARRERA6
+	lineageTag: c2f44438-38ab-4ae2-9a91-c738a0beb60f
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: ebd60cf7-4f43-4e0a-87b9-6f6d6c2f39d4
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 8fc3c4c8-f580-4b5c-be39-c3575912c1f4
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CARRERA6 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    CARRERA_Table = Origen{[Item="CARRERA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(CARRERA_Table,{{"id_carrera", Int64.Type}, {"nombre", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,32 @@
+table BECA5
+	lineageTag: 814b3547-e26c-44d7-8206-f4f73859d10d
+
+	column id_beca
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ae9fe03-82eb-4769-84f7-209adaee6619
+		summarizeBy: none
+		sourceColumn: id_beca
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 8ad5e74f-a63e-4fb5-9301-3859dbae9c4f
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BECA5 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    BECA_Table = Origen{[Item="BECA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(BECA_Table,{{"id_beca", Int64.Type}, {"nombre", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,118 @@
+table TESINA_LICENCIATURA12
+	lineageTag: 22851d79-064b-4925-8528-f46664b12a52
+
+	column id_tesina
+		dataType: int64
+		formatString: 0
+		lineageTag: 84902833-d1ea-4395-bc51-d89cadd5f821
+		summarizeBy: sum
+		sourceColumn: id_tesina
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: 23f9734c-3024-40e2-8389-ca8ef07579a6
+		summarizeBy: none
+		sourceColumn: id_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0e461a15-d412-4bf4-acd1-26960148eaf3
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+		variation Variación
+			isDefault
+			relationship: f4e3c614-5de6-4f1f-872b-c6344fdaf12b
+			defaultHierarchy: LocalDateTable_3a30dabc-4e76-4e0e-bdb9-ecb1eba93200.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 52f1a5ce-bc54-4560-897f-ca740d8b1ee6
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+		variation Variación
+			isDefault
+			relationship: 99b7385f-6f38-4072-a15a-b9202adb0e3e
+			defaultHierarchy: LocalDateTable_3e0e8b97-7f26-426f-937b-9590c800a1f5.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column titulo_tema_principal
+		dataType: string
+		lineageTag: 37586dba-a897-4a26-afe7-d4bf60895b6f
+		summarizeBy: none
+		sourceColumn: titulo_tema_principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_coordinador
+		dataType: int64
+		formatString: 0
+		lineageTag: c418909c-dfc8-4e9a-bbfa-67c556baaec7
+		summarizeBy: sum
+		sourceColumn: id_coordinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_universidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 064c3615-210a-4096-bb5f-c35bc28bfaa0
+		summarizeBy: none
+		sourceColumn: id_universidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: 82c96cb9-2fc2-4199-83de-e7a26d2085f0
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_observacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 28287b5c-3543-4a01-9163-2bacf5980316
+		summarizeBy: none
+		sourceColumn: id_observacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tabla
+		dataType: int64
+		formatString: 0
+		lineageTag: 17d2a1bf-88d2-4be1-b0d9-2342c5207e4a
+		summarizeBy: none
+		sourceColumn: id_tabla
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TESINA_LICENCIATURA12 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    TESINA_LICENCIATURA_Table = Origen{[Item="TESINA_LICENCIATURA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(TESINA_LICENCIATURA_Table,{{"id_tesina", Int64.Type}, {"id_financiamiento", Int64.Type}, {"fecha_inicio", type date}, {"fecha_fin", type date}, {"titulo_tema_principal", type text}, {"id_coordinador", Int64.Type}, {"id_universidad", Int64.Type}, {"id_carrera", Int64.Type}, {"id_observacion", Int64.Type}, {"id_tabla", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

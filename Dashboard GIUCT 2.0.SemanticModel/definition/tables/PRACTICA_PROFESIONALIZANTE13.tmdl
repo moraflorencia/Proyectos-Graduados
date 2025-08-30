@@ -1,0 +1,131 @@
+table PRACTICA_PROFESIONALIZANTE13
+	lineageTag: 4552bed4-87ba-4edf-b526-77409a72afcb
+
+	column id_practica_prof
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a6d0aba-5b93-4b86-8cc4-765d0ec2a8f4
+		summarizeBy: sum
+		sourceColumn: id_practica_prof
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: a95d06d2-a13a-40b8-9c10-fbe59111c1df
+		summarizeBy: none
+		sourceColumn: id_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 470f1556-0ad5-4a95-ab52-1b593127bf32
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+		variation Variación
+			isDefault
+			relationship: 1ffe0e53-9287-4152-86ba-e22b56cd4821
+			defaultHierarchy: LocalDateTable_862ad7d7-f460-4f4f-aa95-9c92c078c9ef.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 50132533-42dc-4185-9712-57cdad727d21
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+		variation Variación
+			isDefault
+			relationship: d03f8d8f-f595-4d6e-b4d3-3da3635e4b69
+			defaultHierarchy: LocalDateTable_4f3624a4-6fec-427d-bd50-55413aee8f82.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column titulo_tema_principal
+		dataType: string
+		lineageTag: c57cdfb9-e3ab-4686-9298-1a2caa67ef62
+		summarizeBy: none
+		sourceColumn: titulo_tema_principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_coordinador
+		dataType: string
+		lineageTag: dfca294f-43a3-4dd8-a989-8fda5da371c1
+		summarizeBy: none
+		sourceColumn: id_coordinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column escuela
+		dataType: string
+		lineageTag: 36aad7bd-ec3f-4347-8d8b-4443e6fb9190
+		summarizeBy: none
+		sourceColumn: escuela
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_observacion
+		dataType: int64
+		formatString: 0
+		lineageTag: d465044b-c19f-41f8-9193-c8ff80edf5d6
+		summarizeBy: none
+		sourceColumn: id_observacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column docente_pp
+		dataType: string
+		lineageTag: 8019678c-19d1-4005-8caf-06151a8c2b45
+		summarizeBy: none
+		sourceColumn: docente_pp
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tabla
+		dataType: int64
+		formatString: 0
+		lineageTag: 2beddb72-d425-4c22-8a06-393c4dd654ab
+		summarizeBy: none
+		sourceColumn: id_tabla
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_universidad
+		dataType: string
+		lineageTag: 936453fc-4f76-4413-87ad-efb1860a1bdd
+		summarizeBy: none
+		sourceColumn: id_universidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_carrera
+		dataType: string
+		lineageTag: ec2c00cf-b2ee-4a17-bfb6-c803c13a78b7
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PRACTICA_PROFESIONALIZANTE13 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    PRACTICA_PROFESIONALIZANTE_Table = Origen{[Item="PRACTICA_PROFESIONALIZANTE",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(PRACTICA_PROFESIONALIZANTE_Table,{{"id_practica_prof", Int64.Type}, {"id_financiamiento", Int64.Type}, {"fecha_inicio", type date}, {"fecha_fin", type date}, {"titulo_tema_principal", type text}, {"id_coordinador", type text}, {"escuela", type text}, {"id_observacion", Int64.Type}, {"docente_pp", type text}, {"id_tabla", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

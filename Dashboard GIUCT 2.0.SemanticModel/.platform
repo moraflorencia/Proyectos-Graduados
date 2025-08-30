@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Dashboard GIUCT 2.0"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c6f5038c-3e9c-4e4c-bb92-b7fa6abc1c54"
+  }
+}

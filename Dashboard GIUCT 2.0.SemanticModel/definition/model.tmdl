@@ -1,0 +1,64 @@
+model Model
+	culture: es-AR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["BECA5","BECARIO10","CARRERA6","CATEGORIA_INVESTIGACION","COORDINADOR8","ENSAYO_CATEDRA","FINANCIAMIENTO7","FORMACION_ACADEMICA9","MATERIA3","OBSERVACION14","PASAPORTE","PLAN_TRABAJO","PRACTICA_PROFESIONALIZANTE13","PRACTICA_SUPERVISADA11","ROL2","TESINA_LICENCIATURA12","TESIS_GRADO","UNIVERSIDAD4","USUARIO_CATEGORIA","USUARIO_ENSAYO","USUARIO_MATERIA","USUARIO_PP","USUARIO_PS","USUARIO_TESINA","USUARIO_TESIS","USUARIO1"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table BECA5
+ref table DateTableTemplate_ed617763-fac8-484c-b3ec-05d99f12f21f
+ref table BECARIO10
+ref table LocalDateTable_269f5fdf-ed47-4a89-b61b-cb5b516341aa
+ref table LocalDateTable_b99cc65e-4db8-47aa-a37c-62ef040a46eb
+ref table CARRERA6
+ref table CATEGORIA_INVESTIGACION
+ref table COORDINADOR8
+ref table LocalDateTable_7d035b74-fa64-44f0-b1f9-3084b9eee142
+ref table ENSAYO_CATEDRA
+ref table LocalDateTable_5e785b7c-e25e-46c9-8ab2-cc99fb5f34ed
+ref table LocalDateTable_590c4e6f-02d7-4733-b27a-8f9f2c29ff49
+ref table FINANCIAMIENTO7
+ref table FORMACION_ACADEMICA9
+ref table MATERIA3
+ref table OBSERVACION14
+ref table PASAPORTE
+ref table LocalDateTable_2e55b943-52ef-4a0a-abe4-c3f9172c1404
+ref table PLAN_TRABAJO
+ref table PRACTICA_PROFESIONALIZANTE13
+ref table LocalDateTable_862ad7d7-f460-4f4f-aa95-9c92c078c9ef
+ref table LocalDateTable_4f3624a4-6fec-427d-bd50-55413aee8f82
+ref table PRACTICA_SUPERVISADA11
+ref table LocalDateTable_fed108f1-bd85-4204-bf63-acc699789514
+ref table LocalDateTable_e03c7c5c-f8c8-4e8a-9d99-75972843b63d
+ref table ROL2
+ref table TESINA_LICENCIATURA12
+ref table LocalDateTable_3a30dabc-4e76-4e0e-bdb9-ecb1eba93200
+ref table LocalDateTable_3e0e8b97-7f26-426f-937b-9590c800a1f5
+ref table TESIS_GRADO
+ref table LocalDateTable_90ac4ce8-7269-4ba4-84a2-fbfe69662b3f
+ref table LocalDateTable_398e7a4b-a2c5-43ad-9d0d-a40f87510f19
+ref table UNIVERSIDAD4
+ref table USUARIO_CATEGORIA
+ref table LocalDateTable_a3245abb-4c33-4f16-bf0a-d3855797f730
+ref table LocalDateTable_1ac41871-ab2a-4777-8141-c61eb9f9c9d4
+ref table USUARIO_ENSAYO
+ref table USUARIO_MATERIA
+ref table USUARIO_PP
+ref table USUARIO_PS
+ref table USUARIO_TESINA
+ref table USUARIO_TESIS
+ref table USUARIO1
+ref table LocalDateTable_d3922ff2-b212-44ae-85e7-2e80377712a6
+ref table LocalDateTable_2965003d-5180-43a7-8e51-175bdef5c42d
+
+ref cultureInfo es-AR
+

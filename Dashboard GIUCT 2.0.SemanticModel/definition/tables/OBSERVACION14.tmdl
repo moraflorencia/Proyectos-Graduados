@@ -1,0 +1,40 @@
+table OBSERVACION14
+	lineageTag: b2c256ef-f539-4cee-a7b9-d3d785ef2bf3
+
+	column id_observacion
+		dataType: int64
+		formatString: 0
+		lineageTag: dba38376-1ff6-41c3-a515-b6a9b9d47983
+		summarizeBy: none
+		sourceColumn: id_observacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column texto
+		dataType: string
+		lineageTag: cf4c093a-75f0-48d6-ba7f-c304fe1fa571
+		summarizeBy: none
+		sourceColumn: texto
+
+		annotation SummarizationSetBy = Automatic
+
+	column tabla_origen
+		dataType: string
+		lineageTag: 4fda379d-0add-4378-89a4-4b1bede61e33
+		summarizeBy: none
+		sourceColumn: tabla_origen
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OBSERVACION14 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    OBSERVACION_Table = Origen{[Item="OBSERVACION",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(OBSERVACION_Table,{{"id_observacion", Int64.Type}, {"texto", type text}, {"tabla_origen", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

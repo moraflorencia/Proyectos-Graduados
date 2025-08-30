@@ -1,0 +1,32 @@
+table PLAN_TRABAJO
+	lineageTag: ec497344-755c-4119-aa36-5ec85b35c1ec
+
+	column id_plan_trabajo
+		dataType: int64
+		formatString: 0
+		lineageTag: 5817d56c-628d-41ca-8297-40eba8cc186e
+		summarizeBy: none
+		sourceColumn: id_plan_trabajo
+
+		annotation SummarizationSetBy = Automatic
+
+	column texto
+		dataType: string
+		lineageTag: 2dfe5618-42e2-4ddf-b833-5fffb6de195c
+		summarizeBy: none
+		sourceColumn: texto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PLAN_TRABAJO = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    PLAN_TRABAJO_Table = Origen{[Item="PLAN_TRABAJO",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(PLAN_TRABAJO_Table,{{"id_plan_trabajo", Int64.Type}, {"texto", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

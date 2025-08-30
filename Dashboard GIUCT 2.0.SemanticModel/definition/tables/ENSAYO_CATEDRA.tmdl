@@ -1,0 +1,135 @@
+table ENSAYO_CATEDRA
+	lineageTag: 67750191-10e2-4ea8-aa1c-407e81303751
+
+	column id_ensayo
+		dataType: int64
+		formatString: 0
+		lineageTag: eb989f29-98c0-4dcb-9eaa-2a5363dba379
+		summarizeBy: sum
+		sourceColumn: id_ensayo
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: 7522f428-36db-4e78-870d-138f0f92f46d
+		summarizeBy: none
+		sourceColumn: id_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ae128cbe-c33d-4d54-8e16-bb2c0b40a419
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+		variation Variación
+			isDefault
+			relationship: 631b51db-eff0-4284-8c00-73a4bbc4eba2
+			defaultHierarchy: LocalDateTable_5e785b7c-e25e-46c9-8ab2-cc99fb5f34ed.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 529ec5c1-a9f4-4eba-89d6-c41e7c8fa974
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+		variation Variación
+			isDefault
+			relationship: 0f83fb71-9132-4b19-a104-57123b9a3253
+			defaultHierarchy: LocalDateTable_590c4e6f-02d7-4733-b27a-8f9f2c29ff49.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column titulo_tema_principal
+		dataType: string
+		lineageTag: a1d38d8b-9ec6-4ad5-a9ad-9223de196c27
+		summarizeBy: none
+		sourceColumn: titulo_tema_principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_coordinador
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e4628b9-f396-40ce-a3e2-420859b8ec24
+		summarizeBy: sum
+		sourceColumn: id_coordinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_universidad
+		dataType: int64
+		formatString: 0
+		lineageTag: a97ea0d6-c2d3-4e89-bafa-9d3a29b4527f
+		summarizeBy: none
+		sourceColumn: id_universidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_materia
+		dataType: int64
+		formatString: 0
+		lineageTag: 589e35db-1b62-4686-bdea-11f32bdf8b34
+		summarizeBy: none
+		sourceColumn: id_materia
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: 5eaa4cc9-038b-4fa1-903c-b9c29638cec8
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_observacion
+		dataType: int64
+		formatString: 0
+		lineageTag: cf9b4d8c-fc1c-4903-976a-a9b1b33d9ecf
+		summarizeBy: none
+		sourceColumn: id_observacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column docente_catedra
+		dataType: string
+		lineageTag: 74a5feb8-389f-49cb-a6dc-77895a2bd1c3
+		summarizeBy: none
+		sourceColumn: docente_catedra
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tabla
+		dataType: int64
+		formatString: 0
+		lineageTag: e3d8274b-f89e-40bb-8810-47ab4a59e025
+		summarizeBy: none
+		sourceColumn: id_tabla
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ENSAYO_CATEDRA = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    ENSAYO_CATEDRA_Table = Origen{[Item="ENSAYO_CATEDRA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(ENSAYO_CATEDRA_Table,{{"id_ensayo", Int64.Type}, {"id_financiamiento", Int64.Type}, {"fecha_inicio", type date}, {"fecha_fin", type date}, {"titulo_tema_principal", type text}, {"id_coordinador", Int64.Type}, {"id_universidad", Int64.Type}, {"id_materia", Int64.Type}, {"id_carrera", Int64.Type}, {"id_observacion", Int64.Type}, {"docente_catedra", type text}, {"id_tabla", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

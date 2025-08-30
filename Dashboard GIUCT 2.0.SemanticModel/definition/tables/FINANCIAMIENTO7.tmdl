@@ -1,0 +1,58 @@
+table FINANCIAMIENTO7
+	lineageTag: 1d6d34ed-3eac-4d43-b523-2b0b8a20a890
+
+	column id_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f1036e6-08dc-4fae-b671-ad40a5a2cbf4
+		summarizeBy: none
+		sourceColumn: id_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column agente_financiador
+		dataType: string
+		lineageTag: f8d8416b-a002-4595-9a05-fa1c1137476e
+		summarizeBy: none
+		sourceColumn: agente_financiador
+
+		annotation SummarizationSetBy = Automatic
+
+	column unidad_financiamiento
+		dataType: string
+		lineageTag: 1c2a8992-2b50-4a1b-981c-8dcdd5353794
+		summarizeBy: none
+		sourceColumn: unidad_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column meses_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: cdbd7cd2-803a-4793-a98f-9415279a33f9
+		summarizeBy: sum
+		sourceColumn: meses_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto
+		dataType: int64
+		formatString: 0
+		lineageTag: c0c85177-d6d0-44de-89c1-76890bc015db
+		summarizeBy: sum
+		sourceColumn: monto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FINANCIAMIENTO7 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    FINANCIAMIENTO_Table = Origen{[Item="FINANCIAMIENTO",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(FINANCIAMIENTO_Table,{{"id_financiamiento", Int64.Type}, {"agente_financiador", type text}, {"unidad_financiamiento", type text}, {"meses_financiamiento", Int64.Type}, {"monto", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,40 @@
+table CATEGORIA_INVESTIGACION
+	lineageTag: a72a30d6-997f-4838-8bcd-ffd28cce8fdd
+
+	column id_categoria_inv
+		dataType: int64
+		formatString: 0
+		lineageTag: 58489de6-032e-477d-a6e4-7aee84e5890b
+		summarizeBy: none
+		sourceColumn: id_categoria_inv
+
+		annotation SummarizationSetBy = Automatic
+
+	column organismo
+		dataType: string
+		lineageTag: 111d2f9a-fa89-48b7-bfb0-c186a0dd4b51
+		summarizeBy: none
+		sourceColumn: organismo
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria
+		dataType: string
+		lineageTag: bfcc612b-40b6-4fad-9e7d-412eeebcd745
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CATEGORIA_INVESTIGACION = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    CATEGORIA_INVESTIGACION_Table = Origen{[Item="CATEGORIA_INVESTIGACION",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(CATEGORIA_INVESTIGACION_Table,{{"id_categoria_inv", Int64.Type}, {"organismo", type text}, {"categoria", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,118 @@
+table TESIS_GRADO
+	lineageTag: 89c1f07e-91fe-4ef6-b32f-a57f73eace78
+
+	column id_tesis
+		dataType: int64
+		formatString: 0
+		lineageTag: e6cfa2ec-c30d-4d3d-8d6c-28830f217137
+		summarizeBy: sum
+		sourceColumn: id_tesis
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: 7900e5b6-6087-434f-9e2e-996e8205a32e
+		summarizeBy: none
+		sourceColumn: id_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f0e4ab44-e07f-46a4-936e-e1f0a6faeeeb
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+		variation Variación
+			isDefault
+			relationship: 168bbfab-3040-4548-846e-b3bc0f8f2b19
+			defaultHierarchy: LocalDateTable_90ac4ce8-7269-4ba4-84a2-fbfe69662b3f.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e6ef303a-3ebe-4a7b-8c4e-08b7c61ab588
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+		variation Variación
+			isDefault
+			relationship: f3a19460-9778-452d-978d-736e9230176a
+			defaultHierarchy: LocalDateTable_398e7a4b-a2c5-43ad-9d0d-a40f87510f19.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column titulo_tema_principal
+		dataType: string
+		lineageTag: 096f9525-2793-4e98-853f-6db109749cee
+		summarizeBy: none
+		sourceColumn: titulo_tema_principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_coordinador
+		dataType: int64
+		formatString: 0
+		lineageTag: a1be6f7f-f706-4cf4-b54e-0092023b24f0
+		summarizeBy: sum
+		sourceColumn: id_coordinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_universidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 9dc3e695-9c40-4913-a3db-6bd75a88aa81
+		summarizeBy: none
+		sourceColumn: id_universidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: c1109eb4-eede-4b8e-b937-65067b4f1eca
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_observacion
+		dataType: int64
+		formatString: 0
+		lineageTag: c61db15d-9154-4805-9cb3-a04ab91dd2c5
+		summarizeBy: none
+		sourceColumn: id_observacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tabla
+		dataType: int64
+		formatString: 0
+		lineageTag: a802da59-cb63-4e82-8fe2-125c5276fdd5
+		summarizeBy: none
+		sourceColumn: id_tabla
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TESIS_GRADO = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    TESIS_GRADO_Table = Origen{[Item="TESIS_GRADO",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(TESIS_GRADO_Table,{{"id_tesis", Int64.Type}, {"id_financiamiento", Int64.Type}, {"fecha_inicio", type date}, {"fecha_fin", type date}, {"titulo_tema_principal", type text}, {"id_coordinador", Int64.Type}, {"id_universidad", Int64.Type}, {"id_carrera", Int64.Type}, {"id_observacion", Int64.Type}, {"id_tabla", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

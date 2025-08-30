@@ -1,0 +1,367 @@
+relationship 14733871-873d-4742-b11e-07615361bddf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BECARIO10.fecha_inicio
+	toColumn: LocalDateTable_269f5fdf-ed47-4a89-b61b-cb5b516341aa.Date
+
+relationship 8095c4a9-ce41-40e0-933f-f8846d495822
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BECARIO10.fecha_fin
+	toColumn: LocalDateTable_b99cc65e-4db8-47aa-a37c-62ef040a46eb.Date
+
+relationship 864919ba-883c-40a4-962d-e1099217f87e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: COORDINADOR8.fecha_inicio
+	toColumn: LocalDateTable_7d035b74-fa64-44f0-b1f9-3084b9eee142.Date
+
+relationship 631b51db-eff0-4284-8c00-73a4bbc4eba2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ENSAYO_CATEDRA.fecha_inicio
+	toColumn: LocalDateTable_5e785b7c-e25e-46c9-8ab2-cc99fb5f34ed.Date
+
+relationship 0f83fb71-9132-4b19-a104-57123b9a3253
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ENSAYO_CATEDRA.fecha_fin
+	toColumn: LocalDateTable_590c4e6f-02d7-4733-b27a-8f9f2c29ff49.Date
+
+relationship f9511220-f9ed-4ca3-beda-1c59b8d8501a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PASAPORTE.vencimiento
+	toColumn: LocalDateTable_2e55b943-52ef-4a0a-abe4-c3f9172c1404.Date
+
+relationship 1ffe0e53-9287-4152-86ba-e22b56cd4821
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PRACTICA_PROFESIONALIZANTE13.fecha_inicio
+	toColumn: LocalDateTable_862ad7d7-f460-4f4f-aa95-9c92c078c9ef.Date
+
+relationship d03f8d8f-f595-4d6e-b4d3-3da3635e4b69
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PRACTICA_PROFESIONALIZANTE13.fecha_fin
+	toColumn: LocalDateTable_4f3624a4-6fec-427d-bd50-55413aee8f82.Date
+
+relationship ef5de2f4-f354-48ec-8042-50520662fb8d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PRACTICA_SUPERVISADA11.fecha_inicio
+	toColumn: LocalDateTable_fed108f1-bd85-4204-bf63-acc699789514.Date
+
+relationship f480d800-b1d7-4b0c-b675-815d9a778181
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PRACTICA_SUPERVISADA11.fecha_fin
+	toColumn: LocalDateTable_e03c7c5c-f8c8-4e8a-9d99-75972843b63d.Date
+
+relationship f4e3c614-5de6-4f1f-872b-c6344fdaf12b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TESINA_LICENCIATURA12.fecha_inicio
+	toColumn: LocalDateTable_3a30dabc-4e76-4e0e-bdb9-ecb1eba93200.Date
+
+relationship 99b7385f-6f38-4072-a15a-b9202adb0e3e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TESINA_LICENCIATURA12.fecha_fin
+	toColumn: LocalDateTable_3e0e8b97-7f26-426f-937b-9590c800a1f5.Date
+
+relationship 168bbfab-3040-4548-846e-b3bc0f8f2b19
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TESIS_GRADO.fecha_inicio
+	toColumn: LocalDateTable_90ac4ce8-7269-4ba4-84a2-fbfe69662b3f.Date
+
+relationship f3a19460-9778-452d-978d-736e9230176a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TESIS_GRADO.fecha_fin
+	toColumn: LocalDateTable_398e7a4b-a2c5-43ad-9d0d-a40f87510f19.Date
+
+relationship c3666c22-e177-47e8-808c-e6970db9dc7e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: USUARIO_CATEGORIA.fecha_obtencion
+	toColumn: LocalDateTable_a3245abb-4c33-4f16-bf0a-d3855797f730.Date
+
+relationship 15bdd735-aa6f-4539-9159-dacfed163e9b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: USUARIO_CATEGORIA.fecha_fin
+	toColumn: LocalDateTable_1ac41871-ab2a-4777-8141-c61eb9f9c9d4.Date
+
+relationship c24caaf5-94d6-4a82-951d-f4c8550602f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: USUARIO1.fecha_nacimiento
+	toColumn: LocalDateTable_d3922ff2-b212-44ae-85e7-2e80377712a6.Date
+
+relationship 74e05484-aaba-4b52-9ca4-10c1ba06b8b7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: USUARIO1.fecha_de_alta
+	toColumn: LocalDateTable_2965003d-5180-43a7-8e51-175bdef5c42d.Date
+
+relationship e19351f3-1ad8-4e78-af92-7e8c5c735e69
+	fromColumn: BECARIO10.id_beca
+	toColumn: BECA5.id_beca
+
+relationship b8b367c3-6ee7-4b8a-ac47-944df40081ba
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: BECARIO10.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship 13936f3c-54b0-4a91-8025-0e677b92f4e9
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: PASAPORTE.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship a3d22eb2-9a26-4450-b39a-db3dab8d1a66
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_CATEGORIA.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship 4f7f1c65-33c8-46e6-b3f8-a64015b522f7
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_ENSAYO.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship 6439f392-b9be-4761-baf9-dc938eac20d4
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_MATERIA.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship de5b116a-71b2-4575-85fb-0124a4b9a829
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_PP.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship e00c919a-33b8-4073-9fac-28bd93e949c3
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_PS.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship 0ffb6884-0896-4576-89fd-154509da5081
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_TESINA.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship 23c62383-bb08-49f6-8782-52ba136cf97f
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_TESIS.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship 17180b96-5667-41fd-b76b-5bc77b2eeccf
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO1.id_usuario
+	toColumn: COORDINADOR8.id_usuario
+
+relationship b23c13d1-0ecc-4496-94af-e2eb10d49a99
+	fromColumn: BECARIO10.id_financiamiento
+	toColumn: FINANCIAMIENTO7.id_financiamiento
+
+relationship 22ee27a2-5d7e-4afa-82e9-a16c1bbcd93a
+	fromColumn: ENSAYO_CATEDRA.id_financiamiento
+	toColumn: FINANCIAMIENTO7.id_financiamiento
+
+relationship b2866997-b4e0-4f8e-8878-e9645e6dcab4
+	fromColumn: PRACTICA_PROFESIONALIZANTE13.id_financiamiento
+	toColumn: FINANCIAMIENTO7.id_financiamiento
+
+relationship 50406b27-2f3d-4455-8358-3f9f74d4a962
+	fromColumn: PRACTICA_SUPERVISADA11.id_financiamiento
+	toColumn: FINANCIAMIENTO7.id_financiamiento
+
+relationship 4799099a-0235-43eb-9f4f-53cc9c836a7e
+	fromColumn: TESINA_LICENCIATURA12.id_financiamiento
+	toColumn: FINANCIAMIENTO7.id_financiamiento
+
+relationship a84fb171-281e-4049-b639-5fa3808aee61
+	fromColumn: TESIS_GRADO.id_financiamiento
+	toColumn: FINANCIAMIENTO7.id_financiamiento
+
+relationship bde81731-da98-444a-98a1-d7626c3335c5
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: ENSAYO_CATEDRA.id_coordinador
+	toColumn: COORDINADOR8.id_coordinador
+
+relationship 88f4e154-ac8a-4dce-915b-e7d63067888b
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: PRACTICA_SUPERVISADA11.id_coordinador
+	toColumn: COORDINADOR8.id_coordinador
+
+relationship 45dc2116-7801-42ed-95d7-453dc433a7f3
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: TESINA_LICENCIATURA12.id_coordinador
+	toColumn: COORDINADOR8.id_coordinador
+
+relationship ec0ea2c9-0c61-437f-b4c8-fc715b8b902a
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: TESIS_GRADO.id_coordinador
+	toColumn: COORDINADOR8.id_coordinador
+
+relationship ec903537-6767-44e6-b770-51ef30e7b50e
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: PRACTICA_SUPERVISADA11.id_coordinador
+	toColumn: BECARIO10.id_coordinador
+
+relationship 153a2c48-9c39-4909-8741-3798c569a0b3
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: TESINA_LICENCIATURA12.id_coordinador
+	toColumn: BECARIO10.id_coordinador
+
+relationship 7d408e45-285b-4059-bda4-a33afb87b0d6
+	fromColumn: BECARIO10.id_plan_trabajo
+	toColumn: PLAN_TRABAJO.id_plan_trabajo
+
+relationship a3b0de88-0cc5-49e1-b2e8-b4e8060fd9a7
+	fromColumn: BECARIO10.id_observacion
+	toColumn: OBSERVACION14.id_observacion
+
+relationship b7d03910-3577-40b8-ba6b-024881369262
+	crossFilteringBehavior: bothDirections
+	fromColumn: ENSAYO_CATEDRA.id_observacion
+	toColumn: OBSERVACION14.id_observacion
+
+relationship 933548b7-212e-4076-a108-d22bdd20191b
+	fromColumn: PRACTICA_PROFESIONALIZANTE13.id_observacion
+	toColumn: OBSERVACION14.id_observacion
+
+relationship 77e287cb-b48b-4abc-b3b8-2d09edc14ea7
+	fromColumn: PRACTICA_SUPERVISADA11.id_observacion
+	toColumn: OBSERVACION14.id_observacion
+
+relationship fe83549f-9ee7-49c6-9697-096cd5ad579d
+	fromColumn: TESINA_LICENCIATURA12.id_observacion
+	toColumn: OBSERVACION14.id_observacion
+
+relationship 3015aa17-4e13-4ee4-a926-d61891fb70b2
+	fromColumn: TESIS_GRADO.id_observacion
+	toColumn: OBSERVACION14.id_observacion
+
+relationship 7a0d6675-f435-4c68-b591-89750373dcd3
+	fromColumn: BECARIO10.id_carrera
+	toColumn: CARRERA6.id_carrera
+
+relationship 6812f7cc-cc52-4c33-87ba-07f49d07e96c
+	fromColumn: ENSAYO_CATEDRA.id_carrera
+	toColumn: CARRERA6.id_carrera
+
+relationship dde112f2-5e93-40cd-9e91-442d4247c923
+	fromColumn: PRACTICA_SUPERVISADA11.id_carrera
+	toColumn: CARRERA6.id_carrera
+
+relationship aebb4784-05c9-4fb8-9657-8d390030de3b
+	fromColumn: TESINA_LICENCIATURA12.id_carrera
+	toColumn: CARRERA6.id_carrera
+
+relationship 9d31c8f0-8572-4e66-9ca7-ac3a238998c6
+	fromColumn: TESIS_GRADO.id_carrera
+	toColumn: CARRERA6.id_carrera
+
+relationship 098df033-ab00-4d6a-bcdd-be042785a8cf
+	fromColumn: USUARIO_CATEGORIA.id_categoria_inv
+	toColumn: CATEGORIA_INVESTIGACION.id_categoria_inv
+
+relationship 039c5673-bf68-4dd3-8d13-d1daf38a0f16
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_ENSAYO.id_ensayo
+	toColumn: ENSAYO_CATEDRA.id_ensayo
+
+relationship 727eac1e-88d9-4074-ba7d-86594a9e33a2
+	fromColumn: ENSAYO_CATEDRA.id_universidad
+	toColumn: UNIVERSIDAD4.id_universidad
+
+relationship c57d79a0-5c25-4609-8363-9caf0502e3fe
+	fromColumn: PRACTICA_SUPERVISADA11.id_universidad
+	toColumn: UNIVERSIDAD4.id_universidad
+
+relationship 6f7d9f3a-5a5c-4749-8f6d-570d0829825d
+	fromColumn: TESINA_LICENCIATURA12.id_universidad
+	toColumn: UNIVERSIDAD4.id_universidad
+
+relationship 64fadad0-30b1-4605-b3b4-ee664c71b2c0
+	fromColumn: TESIS_GRADO.id_universidad
+	toColumn: UNIVERSIDAD4.id_universidad
+
+relationship 95038e38-7f6b-47fa-8ed6-105437547d57
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: ENSAYO_CATEDRA.id_materia
+	toColumn: MATERIA3.id_materia
+
+relationship 7465f9ca-0a51-4e02-976c-71318d97d121
+	isActive: false
+	fromColumn: USUARIO_MATERIA.id_materia
+	toColumn: MATERIA3.id_materia
+
+relationship 1156cd2f-20c5-4d7e-ae87-e514d530ec75
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_PP.id_practica_prof
+	toColumn: PRACTICA_PROFESIONALIZANTE13.id_practica_prof
+
+relationship 0f99492c-33dd-4d53-80f6-7882bb70f1e6
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_PS.id_practica_sup
+	toColumn: PRACTICA_SUPERVISADA11.id_practica_sup
+
+relationship 1d8e89ad-27b6-4851-b36b-aecca4859b2d
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_TESINA.id_tesina
+	toColumn: TESINA_LICENCIATURA12.id_tesina
+
+relationship 3e68473f-8dfa-45c4-a026-22772b0bb596
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: USUARIO_TESIS.id_tesis
+	toColumn: TESIS_GRADO.id_tesis
+
+relationship a44c76d5-e4cb-41f3-bee8-7e6f02f52cdf
+	fromColumn: USUARIO1.rol
+	toColumn: ROL2.id_rol
+
+relationship d48dc47c-024a-424a-b51e-c5bd6d2b9850
+	fromColumn: ENSAYO_CATEDRA.id_tabla
+	toColumn: FORMACION_ACADEMICA9.id_formacion_acadimica
+
+relationship 43299455-2251-4c82-86a8-91e12887c3e9
+	fromColumn: PRACTICA_PROFESIONALIZANTE13.id_tabla
+	toColumn: FORMACION_ACADEMICA9.id_formacion_acadimica
+
+relationship 0f5253e8-182a-46a5-b8ca-8fa2995bfbbe
+	fromColumn: TESINA_LICENCIATURA12.id_tabla
+	toColumn: FORMACION_ACADEMICA9.id_formacion_acadimica
+
+relationship 61e63fbe-9e08-413c-a693-4cccb36072a4
+	fromColumn: PRACTICA_SUPERVISADA11.id_tabla
+	toColumn: FORMACION_ACADEMICA9.id_formacion_acadimica
+
+relationship 09696d3c-a0ed-451c-add9-83196c4751f4
+	fromColumn: TESIS_GRADO.id_tabla
+	toColumn: FORMACION_ACADEMICA9.id_formacion_acadimica
+
+relationship d2cc5962-42ff-47e3-bdc5-f733ec931143
+	fromColumn: PRACTICA_PROFESIONALIZANTE13.id_universidad
+	toColumn: UNIVERSIDAD4.id_universidad
+
+relationship 0ecbfdc1-0d2a-4153-811b-750ae629d6a8
+	fromColumn: PRACTICA_PROFESIONALIZANTE13.id_carrera
+	toColumn: CARRERA6.id_carrera
+

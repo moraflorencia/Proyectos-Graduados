@@ -1,0 +1,82 @@
+table USUARIO_CATEGORIA
+	lineageTag: 9d535123-de8a-4a2c-b0f9-8d2145fa7ef7
+
+	column id_usuario_categoria
+		dataType: int64
+		formatString: 0
+		lineageTag: 03a6891b-7ff3-400e-86ee-9601ab0519f2
+		summarizeBy: sum
+		sourceColumn: id_usuario_categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_categoria_inv
+		dataType: int64
+		formatString: 0
+		lineageTag: c1eef304-da9b-49a7-8e13-52ad18549bcd
+		summarizeBy: none
+		sourceColumn: id_categoria_inv
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_usuario
+		dataType: int64
+		formatString: 0
+		lineageTag: 2465efc8-321d-448e-8918-839ceaeab441
+		summarizeBy: none
+		sourceColumn: id_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_obtencion
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 09a13f7e-d0cd-4188-a285-86e77ec7a825
+		summarizeBy: none
+		sourceColumn: fecha_obtencion
+
+		variation Variación
+			isDefault
+			relationship: c3666c22-e177-47e8-808c-e6970db9dc7e
+			defaultHierarchy: LocalDateTable_a3245abb-4c33-4f16-bf0a-d3855797f730.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2d8755a5-e0bb-4b2f-b1a7-ed38c5f61193
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+		variation Variación
+			isDefault
+			relationship: 15bdd735-aa6f-4539-9159-dacfed163e9b
+			defaultHierarchy: LocalDateTable_1ac41871-ab2a-4777-8141-c61eb9f9c9d4.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column resolucion
+		dataType: string
+		lineageTag: 07fc7290-04f3-4dac-a5e3-14ebe720af9f
+		summarizeBy: none
+		sourceColumn: resolucion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition USUARIO_CATEGORIA = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    USUARIO_CATEGORIA_Table = Origen{[Item="USUARIO_CATEGORIA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(USUARIO_CATEGORIA_Table,{{"id_usuario_categoria", Int64.Type}, {"id_categoria_inv", Int64.Type}, {"id_usuario", Int64.Type}, {"fecha_obtencion", type date}, {"fecha_fin", type date}, {"resolucion", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

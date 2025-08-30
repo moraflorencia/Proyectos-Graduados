@@ -1,0 +1,118 @@
+table PRACTICA_SUPERVISADA11
+	lineageTag: 41f2e5fa-ace6-4ccb-b102-1ddaae79e86e
+
+	column id_practica_sup
+		dataType: int64
+		formatString: 0
+		lineageTag: 6289b33a-107d-48f1-89bd-1842274ef99f
+		summarizeBy: sum
+		sourceColumn: id_practica_sup
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fe3cf29-2b53-42cd-9dfb-4060067efb1b
+		summarizeBy: none
+		sourceColumn: id_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f28f7f7d-9f51-45d4-a20e-bb5e40cad521
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+		variation Variación
+			isDefault
+			relationship: ef5de2f4-f354-48ec-8042-50520662fb8d
+			defaultHierarchy: LocalDateTable_fed108f1-bd85-4204-bf63-acc699789514.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1771e1b7-25b8-4563-a305-2c9c2ac9be02
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+		variation Variación
+			isDefault
+			relationship: f480d800-b1d7-4b0c-b675-815d9a778181
+			defaultHierarchy: LocalDateTable_e03c7c5c-f8c8-4e8a-9d99-75972843b63d.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column titulo_tema_principal
+		dataType: string
+		lineageTag: 52ce416e-c158-4be6-a4f4-7fc9fdab6aa0
+		summarizeBy: none
+		sourceColumn: titulo_tema_principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_coordinador
+		dataType: int64
+		formatString: 0
+		lineageTag: ee9a7e1f-d7d7-4b02-9e67-d4dda781fe5f
+		summarizeBy: sum
+		sourceColumn: id_coordinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_universidad
+		dataType: int64
+		formatString: 0
+		lineageTag: fd05f462-09d8-4e62-828d-4d4a66b7ab6e
+		summarizeBy: none
+		sourceColumn: id_universidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: 46923ef5-63d1-4fa0-a895-e2f066ccacc6
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_observacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 5166db81-bbb0-405d-add4-f4603aaed280
+		summarizeBy: none
+		sourceColumn: id_observacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tabla
+		dataType: int64
+		formatString: 0
+		lineageTag: 3814b44a-8d20-40c5-89c5-91f409f19a6b
+		summarizeBy: none
+		sourceColumn: id_tabla
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PRACTICA_SUPERVISADA11 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    PRACTICA_SUPERVISADA_Table = Origen{[Item="PRACTICA_SUPERVISADA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(PRACTICA_SUPERVISADA_Table,{{"id_practica_sup", Int64.Type}, {"id_financiamiento", Int64.Type}, {"fecha_inicio", type date}, {"fecha_fin", type date}, {"titulo_tema_principal", type text}, {"id_coordinador", Int64.Type}, {"id_universidad", Int64.Type}, {"id_carrera", Int64.Type}, {"id_observacion", Int64.Type}, {"id_tabla", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,49 @@
+table COORDINADOR8
+	lineageTag: e5cc51a9-4bbe-4aa3-bcd6-4ffcdeaa3daa
+
+	column id_coordinador
+		dataType: int64
+		formatString: 0
+		lineageTag: 3509ccdd-a2a6-4aa0-878f-233abec0da5f
+		summarizeBy: sum
+		sourceColumn: id_coordinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_usuario
+		dataType: int64
+		formatString: 0
+		lineageTag: c1179827-a3d7-443a-b472-b0ae6ee520f0
+		summarizeBy: none
+		sourceColumn: id_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8dd2b629-f16d-432b-ad1a-5d82ee532234
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+		variation Variación
+			isDefault
+			relationship: 864919ba-883c-40a4-962d-e1099217f87e
+			defaultHierarchy: LocalDateTable_7d035b74-fa64-44f0-b1f9-3084b9eee142.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition COORDINADOR8 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    COORDINADOR_Table = Origen{[Item="COORDINADOR",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(COORDINADOR_Table,{{"id_coordinador", Int64.Type}, {"id_usuario", Int64.Type}, {"fecha_inicio", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

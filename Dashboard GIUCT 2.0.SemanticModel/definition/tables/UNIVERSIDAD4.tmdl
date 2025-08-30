@@ -1,0 +1,48 @@
+table UNIVERSIDAD4
+	lineageTag: a1364433-8879-4f4d-bfd9-7251f7de47b6
+
+	column id_universidad
+		dataType: int64
+		formatString: 0
+		lineageTag: e67a8117-4ca4-4682-968b-6a6630ab8481
+		summarizeBy: none
+		sourceColumn: id_universidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_universidad
+		dataType: string
+		lineageTag: ba113d5a-21f8-45bf-84e9-384257f8a523
+		summarizeBy: none
+		sourceColumn: nombre_universidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigla
+		dataType: string
+		lineageTag: 1be17ae7-79be-44be-b8ba-c683c57f1d5c
+		summarizeBy: none
+		sourceColumn: sigla
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciudad
+		dataType: string
+		lineageTag: 37111472-ec00-49ea-8438-8d1d3d535ad8
+		summarizeBy: none
+		sourceColumn: ciudad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition UNIVERSIDAD4 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    UNIVERSIDAD_Table = Origen{[Item="UNIVERSIDAD",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(UNIVERSIDAD_Table,{{"id_universidad", Int64.Type}, {"nombre_universidad", type text}, {"sigla", type text}, {"ciudad", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,42 @@
+table USUARIO_ENSAYO
+	lineageTag: fcd3fb74-8aa6-410e-8dc5-0dcf43e01b87
+
+	column id_usuario_ensayo
+		dataType: int64
+		formatString: 0
+		lineageTag: 5efa591a-fddb-41d3-af55-6aa324704fb6
+		summarizeBy: sum
+		sourceColumn: id_usuario_ensayo
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_usuario
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b075cb4-e90a-4cff-9490-edc61143c95b
+		summarizeBy: none
+		sourceColumn: id_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_ensayo
+		dataType: int64
+		formatString: 0
+		lineageTag: 47a86865-9178-4d8a-a6da-ba7dab53ecd7
+		summarizeBy: sum
+		sourceColumn: id_ensayo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition USUARIO_ENSAYO = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    USUARIO_ENSAYO_Table = Origen{[Item="USUARIO_ENSAYO",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(USUARIO_ENSAYO_Table,{{"id_usuario_ensayo", Int64.Type}, {"id_usuario", Int64.Type}, {"id_ensayo", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

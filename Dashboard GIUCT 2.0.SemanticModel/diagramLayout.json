@@ -1,0 +1,360 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 147.74099999999993,
+        "y": 328.75699999999983
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 576.81365311437162,
+            "y": 1954.0238831528395
+          },
+          "nodeIndex": "BECA5",
+          "nodeLineageTag": "814b3547-e26c-44d7-8206-f4f73859d10d",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 300.08712447950035,
+            "y": 1538.4618441215148
+          },
+          "nodeIndex": "BECARIO10",
+          "nodeLineageTag": "800c88d7-5dc9-4130-bcd2-45c34ad30152",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 954.43584847152169,
+            "y": 1125.6071478159297
+          },
+          "nodeIndex": "CARRERA6",
+          "nodeLineageTag": "c2f44438-38ab-4ae2-9a91-c738a0beb60f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1831.648838980858,
+            "y": 196.4401737607036
+          },
+          "nodeIndex": "CATEGORIA_INVESTIGACION",
+          "nodeLineageTag": "a72a30d6-997f-4838-8bcd-ffd28cce8fdd",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1243.4286601284064,
+            "y": 1156.9995203333167
+          },
+          "nodeIndex": "COORDINADOR8",
+          "nodeLineageTag": "e5cc51a9-4bbe-4aa3-bcd6-4ffcdeaa3daa",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 961.60699987959265,
+            "y": 401.88970455157732
+          },
+          "nodeIndex": "ENSAYO_CATEDRA",
+          "nodeLineageTag": "67750191-10e2-4ea8-aa1c-407e81303751",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 662.61157887642116,
+            "y": 661.24200587392716
+          },
+          "nodeIndex": "FINANCIAMIENTO7",
+          "nodeLineageTag": "1d6d34ed-3eac-4d43-b523-2b0b8a20a890",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1586.7794091809044,
+            "y": 1593.1176309575026
+          },
+          "nodeIndex": "FORMACION_ACADEMICA9",
+          "nodeLineageTag": "8f57a553-e476-4b7e-8cd9-3decd8c00a53",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 955.70776180118673,
+            "y": -10
+          },
+          "nodeIndex": "MATERIA3",
+          "nodeLineageTag": "573d0c85-d276-4b2f-ab59-32e6790c1e3f",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 308.33197138985861,
+            "y": 1229.4848667403144
+          },
+          "nodeIndex": "OBSERVACION14",
+          "nodeLineageTag": "b2c256ef-f539-4cee-a7b9-d3d785ef2bf3",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1530.9886607196227,
+            "y": 1039.4237058179506
+          },
+          "nodeIndex": "PASAPORTE",
+          "nodeLineageTag": "ca108456-762a-40bf-80a5-695593c5ec22",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 1718.2897066058945
+          },
+          "nodeIndex": "PLAN_TRABAJO",
+          "nodeLineageTag": "ec497344-755c-4119-aa36-5ec85b35c1ec",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 375.83087719496547,
+            "y": 317.60734317534843
+          },
+          "nodeIndex": "PRACTICA_PROFESIONALIZANTE13",
+          "nodeLineageTag": "4552bed4-87ba-4edf-b526-77409a72afcb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 589.94580895313948,
+            "y": 1437.2059958150003
+          },
+          "nodeIndex": "PRACTICA_SUPERVISADA11",
+          "nodeLineageTag": "41f2e5fa-ace6-4ccb-b102-1ddaae79e86e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1839.679237232375,
+            "y": 1185.1038594203926
+          },
+          "nodeIndex": "ROL2",
+          "nodeLineageTag": "31814d66-0da7-40b8-98f7-9496f9c8209e",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 879.72394054161123,
+            "y": 1308.8335909984528
+          },
+          "nodeIndex": "TESINA_LICENCIATURA12",
+          "nodeLineageTag": "22851d79-064b-4925-8528-f46664b12a52",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 952.22951278140908,
+            "y": 759.07024411855286
+          },
+          "nodeIndex": "TESIS_GRADO",
+          "nodeLineageTag": "89c1f07e-91fe-4ef6-b32f-a57f73eace78",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 662.40731803052483,
+            "y": 1076.9062747089683
+          },
+          "nodeIndex": "UNIVERSIDAD4",
+          "nodeLineageTag": "a1364433-8879-4f4d-bfd9-7251f7de47b6",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1541.6532294270921,
+            "y": 360.62332227490515
+          },
+          "nodeIndex": "USUARIO_CATEGORIA",
+          "nodeLineageTag": "9d535123-de8a-4a2c-b0f9-8d2145fa7ef7",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1251.5580900603572,
+            "y": 435.65554130764531
+          },
+          "nodeIndex": "USUARIO_ENSAYO",
+          "nodeLineageTag": "fcd3fb74-8aa6-410e-8dc5-0dcf43e01b87",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1251.5520220406065,
+            "y": 157.50023728478027
+          },
+          "nodeIndex": "USUARIO_MATERIA",
+          "nodeLineageTag": "21de2cb0-0411-44d0-98c2-1ee1c59229b4",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 665.83085931649907,
+            "y": 232.12912498559217
+          },
+          "nodeIndex": "USUARIO_PP",
+          "nodeLineageTag": "af0c6fb6-cf6f-4f38-81d9-9f2825402252",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 867.02078147531847,
+            "y": 1809.1812318034858
+          },
+          "nodeIndex": "USUARIO_PS",
+          "nodeLineageTag": "a029bb8b-741c-4a1f-9613-6fe140d4f555",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1156.8800001488644,
+            "y": 1664.2187483650509
+          },
+          "nodeIndex": "USUARIO_TESINA",
+          "nodeLineageTag": "81153dbc-5d80-4cae-9e07-46d1ec75767d",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1251.225100126805,
+            "y": 739.76639952976529
+          },
+          "nodeIndex": "USUARIO_TESIS",
+          "nodeLineageTag": "c5edc1af-31c4-4c9c-a359-6bf0a0ab7753",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1820.9178998893906,
+            "y": 832.54141594960538
+          },
+          "nodeIndex": "USUARIO1",
+          "nodeLineageTag": "9fe8a43e-85cd-4442-b129-b764408fc1b3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 75.131480090157808,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

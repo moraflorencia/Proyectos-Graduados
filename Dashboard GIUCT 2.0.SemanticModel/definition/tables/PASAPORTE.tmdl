@@ -1,0 +1,49 @@
+table PASAPORTE
+	lineageTag: ca108456-762a-40bf-80a5-695593c5ec22
+
+	column id_usuario
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a38c822-1836-4dd7-ad6a-6f33a25c0a8f
+		summarizeBy: none
+		sourceColumn: id_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column pasaporte
+		dataType: int64
+		formatString: 0
+		lineageTag: 50f3e177-ff8d-4093-bfc6-342c0e2e3d11
+		summarizeBy: sum
+		sourceColumn: pasaporte
+
+		annotation SummarizationSetBy = Automatic
+
+	column vencimiento
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ae73138f-4df7-4b99-b27f-b8ba5483aed7
+		summarizeBy: none
+		sourceColumn: vencimiento
+
+		variation Variación
+			isDefault
+			relationship: f9511220-f9ed-4ca3-beda-1c59b8d8501a
+			defaultHierarchy: LocalDateTable_2e55b943-52ef-4a0a-abe4-c3f9172c1404.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition PASAPORTE = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    PASAPORTE_Table = Origen{[Item="PASAPORTE",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(PASAPORTE_Table,{{"id_usuario", Int64.Type}, {"pasaporte", Int64.Type}, {"vencimiento", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

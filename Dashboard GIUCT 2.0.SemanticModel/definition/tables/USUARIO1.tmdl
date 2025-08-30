@@ -1,0 +1,156 @@
+table USUARIO1
+	lineageTag: 9fe8a43e-85cd-4442-b129-b764408fc1b3
+
+	column id_usuario
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b6af6c9-8a44-4d4a-9809-7c0c8b75230b
+		summarizeBy: none
+		sourceColumn: id_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 2ac9271a-3ce4-4e28-bc70-f1c1cab861e1
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column apellido
+		dataType: string
+		lineageTag: ee7ec67f-5893-4e05-bee8-c23132790766
+		summarizeBy: none
+		sourceColumn: apellido
+
+		annotation SummarizationSetBy = Automatic
+
+	column celular
+		dataType: int64
+		formatString: 0
+		lineageTag: 194ec31b-299d-41b9-9a97-e505b0652cef
+		summarizeBy: sum
+		sourceColumn: celular
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_personal
+		dataType: string
+		lineageTag: f6628535-f45c-461e-8ebb-42a2c8f230fc
+		summarizeBy: none
+		sourceColumn: email_personal
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_institucional
+		dataType: string
+		lineageTag: e46e2551-c204-4174-8881-0ac5d7bd5c0e
+		summarizeBy: none
+		sourceColumn: email_institucional
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuil
+		dataType: string
+		lineageTag: e56a802c-28b6-4ab1-8f30-3d8b2af02dbb
+		summarizeBy: none
+		sourceColumn: cuil
+
+		annotation SummarizationSetBy = Automatic
+
+	column direccion_postal
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c92fe5e-0c54-47a2-8859-116c48237f7f
+		summarizeBy: sum
+		sourceColumn: direccion_postal
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_nacimiento
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 28ba086f-265c-4cab-97ff-8b86fa57e471
+		summarizeBy: none
+		sourceColumn: fecha_nacimiento
+
+		variation Variación
+			isDefault
+			relationship: c24caaf5-94d6-4a82-951d-f4c8550602f6
+			defaultHierarchy: LocalDateTable_d3922ff2-b212-44ae-85e7-2e80377712a6.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dni
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cf918c1-8c05-4d18-891b-06cd7869194e
+		summarizeBy: sum
+		sourceColumn: dni
+
+		annotation SummarizationSetBy = Automatic
+
+	column rol
+		dataType: int64
+		formatString: 0
+		lineageTag: 12d00d21-aab8-4a9f-b874-a57159902f5d
+		summarizeBy: none
+		sourceColumn: rol
+
+		annotation SummarizationSetBy = Automatic
+
+	column genero
+		dataType: string
+		lineageTag: a7b8b703-cd6d-467f-bc8a-cfaa1a075316
+		summarizeBy: none
+		sourceColumn: genero
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_de_alta
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f943cd75-1120-4913-8261-e8b6a61b9bed
+		summarizeBy: none
+		sourceColumn: fecha_de_alta
+
+		variation Variación
+			isDefault
+			relationship: 74e05484-aaba-4b52-9ca4-10c1ba06b8b7
+			defaultHierarchy: LocalDateTable_2965003d-5180-43a7-8e51-175bdef5c42d.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column pais_nacimiento
+		dataType: string
+		lineageTag: e9eeeb63-73c0-48b3-9463-ef910ad42cc9
+		summarizeBy: none
+		sourceColumn: pais_nacimiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column foto
+		dataType: string
+		lineageTag: 9073499f-2093-4fd0-8871-d513487fc9fa
+		summarizeBy: none
+		sourceColumn: foto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition USUARIO1 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    USUARIO_Table = Origen{[Item="USUARIO",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(USUARIO_Table,{{"id_usuario", Int64.Type}, {"nombre", type text}, {"apellido", type text}, {"celular", Int64.Type}, {"email_personal", type text}, {"email_institucional", type text}, {"cuil", type text}, {"direccion_postal", Int64.Type}, {"fecha_nacimiento", type date}, {"dni", Int64.Type}, {"rol", Int64.Type}, {"genero", type text}, {"fecha_de_alta", type date}, {"pais_nacimiento", type text}, {"foto", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

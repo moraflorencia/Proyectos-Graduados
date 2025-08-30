@@ -1,0 +1,42 @@
+table USUARIO_TESINA
+	lineageTag: 81153dbc-5d80-4cae-9e07-46d1ec75767d
+
+	column id_usuario_tesina
+		dataType: int64
+		formatString: 0
+		lineageTag: 70ad9d1a-a82b-40dd-a30d-e7ca66055ad7
+		summarizeBy: sum
+		sourceColumn: id_usuario_tesina
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_usuario
+		dataType: int64
+		formatString: 0
+		lineageTag: 79db2270-b7cf-469e-9f62-bb59ec13ed67
+		summarizeBy: none
+		sourceColumn: id_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tesina
+		dataType: int64
+		formatString: 0
+		lineageTag: a6a12c1f-59bc-4978-807c-130d599fb529
+		summarizeBy: sum
+		sourceColumn: id_tesina
+
+		annotation SummarizationSetBy = Automatic
+
+	partition USUARIO_TESINA = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    USUARIO_TESINA_Table = Origen{[Item="USUARIO_TESINA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(USUARIO_TESINA_Table,{{"id_usuario_tesina", Int64.Type}, {"id_usuario", Int64.Type}, {"id_tesina", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

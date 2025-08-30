@@ -1,0 +1,152 @@
+table BECARIO10
+	lineageTag: 800c88d7-5dc9-4130-bcd2-45c34ad30152
+
+	column id_becario
+		dataType: int64
+		formatString: 0
+		lineageTag: efbb9c55-4679-4f59-a04f-df30d3b8ccdf
+		summarizeBy: sum
+		sourceColumn: id_becario
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_usuario
+		dataType: int64
+		formatString: 0
+		lineageTag: 03e19251-77a4-4767-acc3-d7ab3fa01c0c
+		summarizeBy: none
+		sourceColumn: id_usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_beca
+		dataType: int64
+		formatString: 0
+		lineageTag: d78c363e-2117-47b4-909c-b0ccb7efa8c8
+		summarizeBy: none
+		sourceColumn: id_beca
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_financiamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: 85ab0206-0b1e-49ab-9304-147f56e02928
+		summarizeBy: none
+		sourceColumn: id_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_coordinador
+		dataType: int64
+		formatString: 0
+		lineageTag: 415ed299-6cca-47bb-96d6-73acfd8e1c42
+		summarizeBy: sum
+		sourceColumn: id_coordinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: eaafd1cb-653f-4f2d-b189-432fad3e2ac3
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+		variation Variación
+			isDefault
+			relationship: 14733871-873d-4742-b11e-07615361bddf
+			defaultHierarchy: LocalDateTable_269f5fdf-ed47-4a89-b61b-cb5b516341aa.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d48e89d8-c0e9-4cd5-a2cd-d0dd2e6f14db
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+		variation Variación
+			isDefault
+			relationship: 8095c4a9-ce41-40e0-933f-f8846d495822
+			defaultHierarchy: LocalDateTable_b99cc65e-4db8-47aa-a37c-62ef040a46eb.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column id_plan_trabajo
+		dataType: int64
+		formatString: 0
+		lineageTag: 3422a69d-506c-4c6b-b998-4b1ad098937c
+		summarizeBy: none
+		sourceColumn: id_plan_trabajo
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_observacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f00133a-736c-4b8a-8155-80b2bbf932db
+		summarizeBy: none
+		sourceColumn: id_observacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column horas_semanales
+		dataType: int64
+		formatString: 0
+		lineageTag: 1694c20c-468f-4788-8417-ddad1ea91531
+		summarizeBy: sum
+		sourceColumn: horas_semanales
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: 91abcbe9-c33b-45d7-b3b8-36f477e2debe
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column proyecto_asignado
+		dataType: string
+		lineageTag: c80c84c2-48a9-47ae-b698-9bd2c30a583f
+		summarizeBy: none
+		sourceColumn: proyecto_asignado
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_becario
+		dataType: string
+		lineageTag: 6ef54529-d97c-479e-879d-7ee645ba20d2
+		summarizeBy: none
+		sourceColumn: tipo_becario
+
+		annotation SummarizationSetBy = Automatic
+
+	column año_en_curso
+		dataType: string
+		lineageTag: 3fcdc2d1-0540-4271-a863-5d7f7da7ffbb
+		summarizeBy: none
+		sourceColumn: año_en_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BECARIO10 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    BECARIO_Table = Origen{[Item="BECARIO",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(BECARIO_Table,{{"id_becario", Int64.Type}, {"id_usuario", Int64.Type}, {"id_beca", Int64.Type}, {"id_financiamiento", Int64.Type}, {"id_coordinador", Int64.Type}, {"fecha_inicio", type date}, {"fecha_fin", type date}, {"id_plan_trabajo", Int64.Type}, {"id_observacion", Int64.Type}, {"horas_semanales", Int64.Type}, {"id_carrera", Int64.Type}, {"proyecto_asignado", type text}, {"tipo_becario", type text}, {"año_en_curso", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

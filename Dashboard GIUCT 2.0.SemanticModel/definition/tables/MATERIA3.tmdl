@@ -1,0 +1,49 @@
+table MATERIA3
+	lineageTag: 573d0c85-d276-4b2f-ab59-32e6790c1e3f
+
+	column id_materia
+		dataType: int64
+		formatString: 0
+		lineageTag: b5e0859a-dc37-440b-907b-32a248311372
+		summarizeBy: none
+		sourceColumn: id_materia
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 1ca4f95a-a239-45b6-a4e4-6844fe8c6306
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column horas_semanales
+		dataType: int64
+		formatString: 0
+		lineageTag: bd90c8ee-1a40-43a0-bc25-3014ef67194d
+		summarizeBy: sum
+		sourceColumn: horas_semanales
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion
+		dataType: string
+		lineageTag: bc7ecef3-29c4-4f19-a5a4-6f0b96a92ee8
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MATERIA3 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    MATERIA_Table = Origen{[Item="MATERIA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(MATERIA_Table,{{"id_materia", Int64.Type}, {"nombre", type text}, {"horas_semanales", Int64.Type}, {"descripcion", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

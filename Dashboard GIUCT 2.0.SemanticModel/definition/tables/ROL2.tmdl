@@ -1,0 +1,40 @@
+table ROL2
+	lineageTag: 31814d66-0da7-40b8-98f7-9496f9c8209e
+
+	column id_rol
+		dataType: int64
+		formatString: 0
+		lineageTag: 373116bb-6e75-4f35-9d93-e61c71290cba
+		summarizeBy: none
+		sourceColumn: id_rol
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo
+		dataType: string
+		lineageTag: fc192aca-61bb-4105-8d2a-859efb6283b2
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion
+		dataType: string
+		lineageTag: c32d0b0c-f27f-4a90-9e4e-62bce190f4cf
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ROL2 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    ROL_Table = Origen{[Item="ROL",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(ROL_Table,{{"id_rol", Int64.Type}, {"tipo", type text}, {"descripcion", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

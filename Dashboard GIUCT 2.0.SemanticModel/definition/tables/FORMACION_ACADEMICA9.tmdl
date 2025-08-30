@@ -1,0 +1,32 @@
+table FORMACION_ACADEMICA9
+	lineageTag: 8f57a553-e476-4b7e-8cd9-3decd8c00a53
+
+	column id_formacion_acadimica
+		dataType: int64
+		formatString: 0
+		lineageTag: 90f1dbc6-e23e-4ba7-b121-62eada66c563
+		summarizeBy: none
+		sourceColumn: id_formacion_acadimica
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: afe63fae-6a67-4f5d-a141-36ce8658c7c8
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FORMACION_ACADEMICA9 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\ACER\OneDrive - UTN FRLP\Escritorio\Base de datos GIUCT 5.0.xlsx"), null, true),
+				    FORMACION_ACADEMICA_Table = Origen{[Item="FORMACION_ACADEMICA",Kind="Table"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(FORMACION_ACADEMICA_Table,{{"id_formacion_acadimica", Int64.Type}, {"nombre", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+
