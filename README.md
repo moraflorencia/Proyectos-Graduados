@@ -18,13 +18,13 @@ El trabajo incluyó:
   
 ## 🎥 Vistas e Interacciones del Dashboard
 ### 🔹 Vista General
-
+<a href='https://postimg.cc/pyLkSLQn' target='_blank'><img src='https://i.postimg.cc/pyLkSLQn/General1.gif' border='0' alt='General1'/></a>
 
 ### 🔹 Vista Formacion Academica 
-
+<a href='https://postimg.cc/c6CMm5ZR' target='_blank'><img src='https://i.postimg.cc/c6CMm5ZR/Formacion-Academica.gif' border='0' alt='Formacion-Academica'/></a>
 
 ### 🔹 Vista Coordinadores
-
+<a href='https://postimg.cc/pmfDTwYH' target='_blank'><img src='https://i.postimg.cc/pmfDTwYH/Captura-de-pantalla-2025-08-29-233951.png' border='0' alt='Captura-de-pantalla-2025-08-29-233951'/></a>
 ---
 
 ## 📂 Contenido del Repositorio
